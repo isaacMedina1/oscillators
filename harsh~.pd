@@ -1,0 +1,170 @@
+#N canvas 0 22 552 737 10;
+#X obj 27 143 cnv 15 240 280 empty empty empty 20 12 0 14 -159732 -66577
+0;
+#X obj 278 143 cnv 15 240 280 empty empty empty 20 12 0 14 -158976
+-66577 0;
+#X obj 56 275 abs~;
+#X obj 56 117 phasor~;
+#X obj 318 353 *~ 2;
+#X obj 318 377 -~ 1;
+#X obj 318 461 *~, f 28;
+#X obj 287 219 sig~;
+#X obj 290 167 hsl 128 20 0 100 0 0 empty empty PULSE-AMOUNT -2 -8
+0 10 -261325 -66577 -66577 0 1;
+#X obj 287 195 / 100;
+#X obj 56 461 *~, f 39;
+#X obj 287 437 -~ 1;
+#X obj 113 219 sig~;
+#X obj 116 167 hsl 128 20 0 100 0 0 empty empty SAW/TRIANGLE -2 -8
+0 10 -261325 -66577 -66577 6350 1;
+#X obj 56 251 -~, f 10;
+#X obj 167 315 -, f 5;
+#X obj 167 243 t b f;
+#X obj 194 291 / 50;
+#X obj 194 267 abs;
+#X obj 113 195 / 100;
+#X obj 167 195 - 50;
+#X obj 167 219 * 2;
+#X obj 167 339 sig~;
+#X obj 56 363 *~, f 19;
+#X obj 167 291 + 4;
+#X obj 56 387 -~ 1;
+#X text 34 462 MIX;
+#X obj 318 329 expr~ $v1 > $v2;
+#X obj 408 253 hsl 80 20 0 100 0 0 empty empty PULSE-WIDTH -2 -8 0
+10 -261325 -66577 -66577 3950 1;
+#X obj 405 281 / 100;
+#X obj 405 305 sig~;
+#X obj 340 84 loadbang;
+#X obj 56 53 inlet~;
+#X obj 113 53 inlet;
+#X obj 287 53 inlet;
+#X obj 405 53 inlet;
+#X obj 46 495 cnv 15 102 36 empty empty empty 20 12 0 14 -261364 -66577
+0;
+#X obj 176 545 metro 100;
+#X obj 176 569 tabwrite~ harsh;
+#X obj 56 569 outlet~;
+#X obj 56 43 cnv 10 40 10 empty empty empty 8 12 0 14 -258113 -66577
+0;
+#X obj 113 43 cnv 10 34 10 empty empty empty 8 12 0 14 -258113 -66577
+0;
+#X obj 287 43 cnv 10 34 10 empty empty empty 8 12 0 14 -258113 -66577
+0;
+#X obj 405 43 cnv 10 34 10 empty empty empty 8 12 0 14 -258113 -66577
+0;
+#X obj 56 585 cnv 10 46 10 empty empty empty 8 12 0 14 -258113 -66577
+0;
+#X text 60 26 (HZ.);
+#X text 108 26 (0-100);
+#X text 282 26 (0-100);
+#X text 400 26 (0-100);
+#X text 63 13 FREQ;
+#X text 108 13 SAW/TRI;
+#X text 278 13 PULSE-AMT;
+#X text 389 13 PULSE WIDTH;
+#X msg 325 108 0;
+#X msg 355 108 50;
+#X obj 27 623 cnv 15 360 80 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X text 35 650 Different waveforms from a single [phasor~] object.
+The oscillator can be morphed from saw to triangle and mixed with pulse
+train math to create other complex waveforms. Isaac Medina \, 2020
+;
+#X text 33 629 [harsh~] Morphing Oscillator;
+#X obj 393 623 cnv 15 110 80 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array harsh 100 float 1;
+#A 0 -0.999415 -0.999415 -0.999415 -0.999415 -0.999415 -0.999415 -0.999415
+-0.999415 -0.999415 -0.999415 -0.999415 -0.999415 -0.999415 -0.999415
+-0.999415 -0.999415 -0.999415 -0.999415 -0.999415 -0.999415 -0.999415
+-0.999415 -0.999415 -0.999415 -0.999415 -0.999415 -0.999415 -0.999415
+-0.999415 -0.999415 -0.999415 -0.999415 -0.999415 -0.999415 -0.999415
+-0.999415 -0.999415 -0.999415 -0.999415 -0.999415 -0.999415 -0.999415
+-0.999415 -0.999415 -0.999415 -0.999415 -0.999415 -0.999415 -0.999415
+-0.999415 -0.999415 -0.999415 -0.999415 -0.999415 -0.999415 -0.999415
+-0.999415 -0.999415 -0.999415 -0.999415 -0.999415 -0.999415 -0.999415
+-0.999415 -0.999415 -0.999415 -0.999415 -0.999415 -0.999415 -0.999415
+-0.999415 -0.999415 -0.999415 -0.999415 -0.999415 -0.999415 -0.999415
+-0.999415 -0.999415 -0.999415 -0.999415 -0.999415 -0.999415 -0.999415
+-0.999415 -0.999415 -0.999415 -0.999415 -0.999415 -0.999415 -0.999415
+-0.999415 -0.999415 -0.999415 -0.999415 -0.999415 -0.999415 -0.999415
+-0.999415 -0.999415;
+#X coords 0 1 99 -1 110 80 1 0 0;
+#X restore 393 623 graph;
+#X obj 176 500 loadbang;
+#X msg 176 521 1;
+#N canvas 0 22 315 420 upsampling 0;
+#X obj 19 340 outlet~;
+#X obj 19 21 inlet~;
+#X obj 97 313 block~ 1024 1 16;
+#X obj 19 204 *~ 0.125;
+#X obj 19 228 rzero~ -1;
+#X obj 19 252 rzero~ -1;
+#X obj 19 276 rzero~ -1;
+#X obj 19 109 rpole~ 0.87467;
+#X obj 19 85 *~ 0.12532;
+#X obj 19 132 *~ 0.01668;
+#X obj 19 156 cpole~ 0.9293 0.10812;
+#X obj 19 180 cpole~ 0.9293 -0.10812;
+#X text 19 370 Subpatch from Miller Puckette's documents: 3.audio.examples/J07.oversampling.pd
+;
+#X connect 1 0 8 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 0 0;
+#X connect 7 0 9 0;
+#X connect 8 0 7 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 10 1 11 1;
+#X connect 11 0 3 0;
+#X restore 56 505 pd upsampling;
+#X connect 2 0 23 0;
+#X connect 3 0 14 0;
+#X connect 3 0 27 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 62 0;
+#X connect 7 0 6 1;
+#X connect 7 0 11 0;
+#X connect 8 0 9 0;
+#X connect 9 0 7 0;
+#X connect 10 0 62 0;
+#X connect 11 0 10 1;
+#X connect 12 0 14 1;
+#X connect 13 0 19 0;
+#X connect 13 0 20 0;
+#X connect 14 0 2 0;
+#X connect 15 0 22 0;
+#X connect 16 0 24 0;
+#X connect 16 1 18 0;
+#X connect 17 0 15 1;
+#X connect 18 0 17 0;
+#X connect 19 0 12 0;
+#X connect 20 0 21 0;
+#X connect 21 0 16 0;
+#X connect 22 0 23 1;
+#X connect 23 0 25 0;
+#X connect 24 0 15 0;
+#X connect 25 0 10 0;
+#X connect 27 0 4 0;
+#X connect 28 0 29 0;
+#X connect 29 0 30 0;
+#X connect 30 0 27 1;
+#X connect 31 0 53 0;
+#X connect 31 0 54 0;
+#X connect 32 0 3 0;
+#X connect 33 0 13 0;
+#X connect 34 0 8 0;
+#X connect 35 0 28 0;
+#X connect 37 0 38 0;
+#X connect 53 0 8 0;
+#X connect 54 0 28 0;
+#X connect 54 0 13 0;
+#X connect 60 0 61 0;
+#X connect 61 0 37 0;
+#X connect 62 0 39 0;
+#X connect 62 0 38 0;

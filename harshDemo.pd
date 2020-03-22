@@ -1,0 +1,89 @@
+#N canvas 132 43 451 621 10;
+#X obj 175 465 *~, f 11;
+#X obj 238 441 line~;
+#X msg 238 393 0;
+#X obj 29 356 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 238 369 delay 2;
+#X obj 238 417 pack 0 100;
+#X obj 298 394 hsl 50 15 0 400 0 0 empty empty RELEASE -2 -8 0 10 -262144
+-1 -1 1000 1;
+#X obj 29 127 t b b;
+#X obj 29 74 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 175 280 mtof;
+#X obj 175 489 dac~;
+#X obj 29 27 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 56 151 f;
+#X obj 86 152 + 1;
+#X obj 175 301 sig~;
+#X obj 121 73 sel 0;
+#X msg 121 97 0;
+#X obj 250 205 snapshot~;
+#X obj 250 229 abs;
+#X obj 250 253 * 100;
+#X obj 270 181 metro 100;
+#X obj 270 158 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 250 301 line;
+#X obj 250 277 pack 0 100;
+#X obj 250 134 osc~ 0.1;
+#X msg 188 393 0.25 1;
+#X obj 56 175 % 4;
+#X obj 56 199 sel 0 1 2 3, f 27;
+#X msg 135 223 58;
+#X msg 56 223 28;
+#X msg 95 223 75;
+#X obj 175 223 random 128;
+#X obj 167 325 cnv 15 252 36 empty empty empty 20 12 0 14 -159732 -66577
+0;
+#X obj 175 335 harsh~, f 38;
+#X obj 29 50 metro 125;
+#X obj 27 523 cnv 15 360 70 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X text 33 529 Sequencing [harsh~] with a counter and a selector. An
+LFO modulates the SAW/TRI parameter and a short enevlope makes it a
+nice percussive bass. Enjoy!;
+#X text 33 569 Isaac Medina \, 2020;
+#X connect 0 0 10 0;
+#X connect 0 0 10 1;
+#X connect 1 0 0 1;
+#X connect 2 0 5 0;
+#X connect 3 0 4 0;
+#X connect 3 0 25 0;
+#X connect 4 0 2 0;
+#X connect 5 0 1 0;
+#X connect 6 0 5 1;
+#X connect 7 0 3 0;
+#X connect 7 1 12 0;
+#X connect 8 0 7 0;
+#X connect 9 0 14 0;
+#X connect 11 0 15 0;
+#X connect 11 0 34 0;
+#X connect 12 0 13 0;
+#X connect 12 0 26 0;
+#X connect 13 0 12 1;
+#X connect 14 0 33 0;
+#X connect 15 0 16 0;
+#X connect 16 0 12 1;
+#X connect 17 0 18 0;
+#X connect 18 0 19 0;
+#X connect 19 0 23 0;
+#X connect 20 0 17 0;
+#X connect 21 0 20 0;
+#X connect 22 0 33 1;
+#X connect 23 0 22 0;
+#X connect 24 0 17 0;
+#X connect 25 0 1 0;
+#X connect 26 0 27 0;
+#X connect 27 0 29 0;
+#X connect 27 1 30 0;
+#X connect 27 2 28 0;
+#X connect 27 3 31 0;
+#X connect 28 0 9 0;
+#X connect 29 0 9 0;
+#X connect 30 0 9 0;
+#X connect 31 0 9 0;
+#X connect 33 0 0 0;
+#X connect 34 0 8 0;
