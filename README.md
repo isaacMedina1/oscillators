@@ -1,3 +1,3 @@
 # oscillators
-Digitally programmed oscillators
+Digitally programmed oscillators.
 Isaac Medina, 2020
